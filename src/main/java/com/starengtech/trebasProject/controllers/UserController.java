@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @CrossOrigin(origins = "*")
@@ -26,6 +27,16 @@ public class UserController {
     public ResponseEntity<User> findById(@PathVariable Long id){
         User user = service.findById(id);
         return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping(value = "/find-by-name")
+    public ResponseEntity <User> findUserByName(@RequestParam(name = "name") String name) {
+        User user = service.findByName(name);
+        if(user.getId()>0){
+            return ResponseEntity.ok().body(user);
+        }else{
+            return ResponseEntity.noContent().build();
+        }
     }
 
     @PostMapping

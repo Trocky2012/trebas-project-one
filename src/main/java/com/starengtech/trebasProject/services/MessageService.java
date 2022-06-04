@@ -20,8 +20,8 @@ public class MessageService {
     private MessageRepository repository;
 
     public List<Message> findAll() {
-        //return repository.findAllByOrderByIdDesc();
-        return repository.findAll();
+        return repository.findAllByOrderByIdDesc();
+//        return repository.findAll();
     }
 
     public Message findById(Long id) {

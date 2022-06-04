@@ -20,6 +20,8 @@ User u9 = new User(null,"Thiago");
 
 
 
+
+
 ----------------------------------------------------------
 					USER
 ----------------------------------------------------------
@@ -36,6 +38,12 @@ GET -> http://localhost:8080/users/1
 
 -----------------------------------------
 
+-- Find by user name:
+
+GET -> http://localhost:8080/users/find-by-name?name=Thiago
+
+-----------------------------------------
+
 --REQUEST:
 POST -> http://localhost:8080/users
 {
@@ -48,6 +56,13 @@ POST -> http://localhost:8080/users
     "name": "Cristiano Ronaldo"
 }
 
+-----------------------------------------
+
+
+
+
+
+
 
 
 ----------------------------------------------------------
@@ -58,18 +73,18 @@ POST -> http://localhost:8080/users
 
 GET -> http://localhost:8080/messages
 
------------------------------------------
+-------------------------------------------
 
 -- Find message by ID:
 
 GET -> http://localhost:8080/messages/1
 
------------------------------------------
-
 -------------------------------------------
 
 POST -> http://localhost:8080/messages
 
+
+--REQUEST:
 {
     "text": "A new project",
     "msgType": "LIFE",
@@ -78,5 +93,22 @@ POST -> http://localhost:8080/messages
         "id": 4
     }
 }
+
+
+--RETURN:
+{
+    "id": 16,
+    "text": "A new project",
+    "msgType": "LIFE",
+    "insert_time": "2022-06-03T23:12:34Z",
+    "user": {
+        "id": 4,
+        "name": null
+    }
+}
+
+
+-------------------------------------------
+
 
 

@@ -22,13 +22,18 @@ public class UserService {
     private UserRepository repository;
 
     public List<User> findAll() {
-        //return repository.findAllByOrderByIdDesc();
+//        return repository.findAllByOrderByIdDesc();
         return repository.findAll();
     }
 
     public User findById(Long id) {
         Optional<User> obj = repository.findById(id);
         return obj.orElseThrow(() -> new ResourceNotFoundException(id) );
+    }
+
+    public User findByName(String name) {
+        Optional<User> obj = repository.findByName(name);
+        return obj.orElseThrow(() -> new ResourceNotFoundException(name));
     }
 
     public User insert(User user) {
