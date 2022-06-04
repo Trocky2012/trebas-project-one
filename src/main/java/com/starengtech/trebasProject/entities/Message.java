@@ -22,7 +22,7 @@ public class Message implements Serializable {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss'Z'", timezone = "GMT")
     private Instant insert_time;
 
-    @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "user_id")
     private User user;
@@ -30,18 +30,11 @@ public class Message implements Serializable {
     public Message() {
     }
 
-    public Message(Long id, String text, MessageType msgType, Instant insert_time, User user) {
-        this.id = id;
-        this.text = text;
-        this.msgType = msgType;
-        this.insert_time = insert_time;
-        this.user = user;
-    }
-
     public Message(Long id, String text, MessageType msgType, User user) {
         this.id = id;
         this.text = text;
         this.msgType = msgType;
+        this.insert_time = Instant.now();
         this.user = user;
     }
 

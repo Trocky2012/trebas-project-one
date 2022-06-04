@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "*")
 @RequestMapping(value = "/messages")
 public class MessageController {
 
@@ -23,15 +24,15 @@ public class MessageController {
         return ResponseEntity.ok().body(list);
     }
 
-    /*@GetMapping(value = "/{id}")
+    @GetMapping(value = "/{id}")
     public ResponseEntity<Message> findById(@PathVariable Long id){
         Message user = service.findById(id);
         return ResponseEntity.ok().body(user);
-    }*/
+    }
 
-    /*@PostMapping
+    @PostMapping
     public ResponseEntity<Message> insert(@RequestBody Message message){
         return ResponseEntity.ok().body(service.insert(message));
-    }*/
+    }
 
 }

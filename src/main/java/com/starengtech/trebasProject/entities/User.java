@@ -1,5 +1,7 @@
 package com.starengtech.trebasProject.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.HashSet;
@@ -17,6 +19,7 @@ public class User implements Serializable {
     private Long id;
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "user")
     private Set<Message> messages = new HashSet<>();
 
